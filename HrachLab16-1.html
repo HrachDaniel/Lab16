@@ -1,96 +1,61 @@
-// Завдання 1
-const images = document.querySelectorAll('img');
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JavaScript Завдання</title>
+    <style>
+        .valid { border: 2px solid green; }
+        .invalid { border: 2px solid red; }
+        img { width: 200px; height: 300px; margin: 10px; }
+        input, p, a { margin: 10px; display: block; }
+    </style>
+</head>
+<body>
+    <h2>Завдання 1-4</h2>
+    
+    <div>
+        <h3>1. Клік на зображення</h3>
+        <img src="image1.jpg" alt="Зображення 1">
+        <img src="image2.jpg" alt="Зображення 2">
+        <img src="image3.jpg" alt="Зображення 3">
+    </div>
 
-images.forEach(img => {
-  img.style.width = 200px;
-  img.style.height = 300px;
-  img.onclick = function() {
-    alert(this.getAttribute('src'));
-  };
-});
-
-// Завдання 2
-const links2 = document.querySelectorAll('a.link2');
-
-function addTitle(event) {
-    this.setAttribute('title', this.textContent);
-}
-
-links.forEach(link => {
-    link.addEventListener('mouseover', addTitle);
-});
-
-// Завдання 3
-const links3 = document.querySelectorAll('a.link3');
-
-function appendHref(event) {
-    const href = this.getAttribute('href');
-    this.textContent = ${this.textContent} (${href});
-}
-
-links.forEach(link => {
-    link.addEventListener('mouseover', appendHref);
-});
-
-// Завдання 4
-const links4 = document.querySelectorAll('a.link4');
-
-function appendHrefOnce(event) {
-    const href = this.getAttribute('href');
-    this.textContent = ${this.textContent} (${href});
-    this.removeEventListener('mouseover', appendHrefOnce);
-}
-
-links.forEach(link => {
-    link.addEventListener('mouseover', appendHrefOnce);
-});
-
-// Завдання 5
-const inputs = document.querySelectorAll('input');
-const demoParagraph = document.getElementById('demo');
-
-inputs.forEach(input => {
-    input.addEventListener('blur', function() {
-        demoParagraph.textContent = this.value;
-    });
-});
-
-// Завдання 6
-const inputs = document.querySelectorAll('input');
-
-function showValueOnce(event) {
-    alert(this.value);
-    this.removeEventListener('click', showValueOnce);
-}
-
-inputs.forEach(input => {
-    input.addEventListener('click', showValueOnce);
-});
-
-// Завдання 7
-const paragraphs = document.querySelectorAll('p');
-
-paragraphs.forEach(p => {
-    p.addEventListener('click', function() {
-        const number = parseFloat(this.textContent);
-        if (!isNaN(number)) {
-            this.textContent = number*number;
-        }
-    });
-});
-
-// Завдання 8
-const inputs = document.querySelectorAll('input');
-
-inputs.forEach(input => {
-    input.addEventListener('blur', function() {
-        const requiredLength = parseInt(this.getAttribute('data-length'));
-        const currentLength = this.value.length;
-        
-        if (currentLength === requiredLength) {
-            this.style.borderColor = 'green';
-        } else {
-            this.style.borderColor = 'red';
-        }
-    });
-});
+    <div>
+        <h3>2-4. Посилання</h3>
+        <a href="https://example.com/page1">Посиляння 1</a>
+        <a href="https://example.com/page2">Посилання 2</a>
+        <a href="https://example.com/page3">Посилання 3</a>
+    </div>
+    
+    <h2>Завдання 5-8</h2>
+    
+    <div>
+        <h3>5. Введіть текст:</h3>
+        <input type="text" placeholder="Введіть текст 1">
+        <input type="text" placeholder="Введіть текст 2">
+        <input type="text" placeholder="Введіть текст 3">
+        <p id="demo"></p>
+    </div>
+    
+    <div>
+        <h3>6. Клікніть на input </h3>
+        <input type="text" placeholder="Клікніть тут 1" value=" 1">
+        <input type="text" placeholder="Клікніть тут 2" value="Значення 2">
+        <input type="text" placeholder="Клікніть тут 3" value="Значення 3">
+    </div>
+    
+    <div>
+        <h3>7. Клікніть на число:</h3>
+        <p>5</p>
+        <p>10</p>
+        <p>15</p>
+    </div>
+    
+    <div>
+        <h3>8. Введіть текст правильної довжини:</h3>
+        <input type="text" placeholder="Введіть 5 символів" data-length="5">
+        <input type="text" placeholder="Введіть 10 символів" data-length="10">
+        <input type="text" placeholder="Введіть 15 символи" data-length="15">
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
