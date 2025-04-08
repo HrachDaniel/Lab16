@@ -1,96 +1,93 @@
-// Завдання 1
-const images = document.querySelectorAll('img');
+/* 1 */
+  const image1 = document.getElementById('image1');
+  const image2 = document.getElementById('image2');
+  const image3 = document.getElementById('image3');
 
-images.forEach(img => {
-  img.style.width = 200px;
-  img.style.height = 300px;
-  img.onclick = function() {
-    alert(this.getAttribute('src'));
+  image1.onclick = function() {
+    alert(this.src);
   };
-});
 
-// Завдання 2
-const links2 = document.querySelectorAll('a.link2');
+  image2.onclick = function() {
+    alert(this.src);
+  };
 
-function addTitle(event) {
-    this.setAttribute('title', this.textContent);
-}
+  image3.onclick = function() {
+    alert(this.src);
+  };
 
-links.forEach(link => {
-    link.addEventListener('mouseover', addTitle);
-});
+/* 2 */
+  const link1 = document.getElementById('link1');
+  const link2 = document.getElementById('link2');
+  const link3 = document.getElementById('link3');
 
-// Завдання 3
-const links3 = document.querySelectorAll('a.link3');
+  function handleMouseOver() {
+    this.title = this.textContent;
+  }
 
-function appendHref(event) {
-    const href = this.getAttribute('href');
-    this.textContent = ${this.textContent} (${href});
-}
+  link1.addEventListener('mouseover', handleMouseOver);
+  link2.addEventListener('mouseover', handleMouseOver);
+  link3.addEventListener('mouseover', handleMouseOver);
 
-links.forEach(link => {
-    link.addEventListener('mouseover', appendHref);
-});
+  setTimeout(() => {
+    link1.removeEventListener('mouseover', handleMouseOver);
+    console.log("Обробник події 'mouseover' для посилання 1 видалено.");
+  }, 5000);
 
-// Завдання 4
-const links4 = document.querySelectorAll('a.link4');
 
-function appendHrefOnce(event) {
-    const href = this.getAttribute('href');
-    this.textContent = ${this.textContent} (${href});
-    this.removeEventListener('mouseover', appendHrefOnce);
-}
+/* 5-6 */
+  const input1 = document.getElementById('input1');
+  const input2 = document.getElementById('input2');
+  const input3 = document.getElementById('input3');
+  const demoParagraph = document.getElementById('demo');
 
-links.forEach(link => {
-    link.addEventListener('mouseover', appendHrefOnce);
-});
-
-// Завдання 5
-const inputs = document.querySelectorAll('input');
-const demoParagraph = document.getElementById('demo');
-
-inputs.forEach(input => {
-    input.addEventListener('blur', function() {
-        demoParagraph.textContent = this.value;
-    });
-});
-
-// Завдання 6
-const inputs = document.querySelectorAll('input');
-
-function showValueOnce(event) {
+  function handleBlur() {
+    demoParagraph.textContent += this.value + " ";
+  }
+  function handleClickOnce() {
     alert(this.value);
-    this.removeEventListener('click', showValueOnce);
-}
+    this.removeEventListener('click', handleClickOnce);
+  }
 
-inputs.forEach(input => {
-    input.addEventListener('click', showValueOnce);
-});
+  input1.addEventListener('blur', handleBlur);
+  input2.addEventListener('blur', handleBlur);
+  input3.addEventListener('blur', handleBlur);
+  input1.addEventListener('click', handleClickOnce);
+  input2.addEventListener('click', handleClickOnce);
+  input3.addEventListener('click', handleClickOnce);
 
-// Завдання 7
-const paragraphs = document.querySelectorAll('p');
+/* 7 */
+  const paragraph1 = document.getElementById('paragraph1');
+  const paragraph2 = document.getElementById('paragraph2');
+  const paragraph3 = document.getElementById('paragraph3');
 
-paragraphs.forEach(p => {
-    p.addEventListener('click', function() {
-        const number = parseFloat(this.textContent);
-        if (!isNaN(number)) {
-            this.textContent = number*number;
-        }
-    });
-});
+  function calculateSquare() {
+    const number = parseInt(this.textContent);
+    if (!isNaN(number)) {
+      this.textContent = number * number;
+      // this.removeEventListener('click', calculateSquare);
+    } else {
+      this.textContent = "Не число";
+    }
+  }
 
-// Завдання 8
-const inputs = document.querySelectorAll('input');
+  paragraph1.addEventListener('click', calculateSquare);
+  paragraph2.addEventListener('click', calculateSquare);
+  paragraph3.addEventListener('click', calculateSquare);
 
-inputs.forEach(input => {
+/* 8 */
+  const inputs = document.querySelectorAll('input');
+
+  inputs.forEach(input => {
     input.addEventListener('blur', function() {
-        const requiredLength = parseInt(this.getAttribute('data-length'));
-        const currentLength = this.value.length;
-        
-        if (currentLength === requiredLength) {
-            this.style.borderColor = 'green';
-        } else {
-            this.style.borderColor = 'red';
-        }
+      const requiredLength = parseInt(this.dataset.length);
+      const currentLength = this.value.length;
+
+      this.classList.remove('valid', 'invalid');
+
+      if (currentLength === requiredLength) {
+        this.classList.add('valid');
+      } else {
+        this.classList.add('invalid');
+      }
     });
-});
+  });
