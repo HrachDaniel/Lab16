@@ -1,61 +1,83 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>JavaScript Завдання</title>
-    <style>
-        .valid { border: 2px solid green; }
-        .invalid { border: 2px solid red; }
-        img { width: 200px; height: 300px; margin: 10px; }
-        input, p, a { margin: 10px; display: block; }
-    </style>
+<title>Рисунки з обробниками onclick</title>
+<style>
+  .image {
+    width: 200px;
+    height: 300px;
+    border: 1px solid black; 
+    cursor: pointer; 
+  }
+  a {
+    display: block;
+    margin-bottom: 10px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    text-decoration: none;
+    color: blue;
+  }
+  b {
+    display: block;
+    margin-bottom: 10px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    text-decoration: none;
+    color: blue;
+  }
+  p {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 10px;
+    cursor: pointer;
+  }
+  input {
+    margin-bottom: 10px;
+    padding: 8px;
+    border: 2px solid #ccc;
+  }
+
+  input.valid {
+    border-color: green;
+  }
+
+  input.invalid {
+    border-color: red;
+  }
+</style>
 </head>
 <body>
-    <h2>Завдання 1-4</h2>
-    
-    <div>
-        <h3>1. Клік на зображення</h3>
-        <img src="image1.jpg" alt="Зображення 1">
-        <img src="image2.jpg" alt="Зображення 2">
-        <img src="image3.jpg" alt="Зображення 3">
-    </div>
 
-    <div>
-        <h3>2-4. Посилання</h3>
-        <a href="https://example.com/page1">Посиляння 1</a>
-        <a href="https://example.com/page2">Посилання 2</a>
-        <a href="https://example.com/page3">Посилання 3</a>
-    </div>
-    
-    <h2>Завдання 5-8</h2>
-    
-    <div>
-        <h3>5. Введіть текст:</h3>
-        <input type="text" placeholder="Введіть текст 1">
-        <input type="text" placeholder="Введіть текст 2">
-        <input type="text" placeholder="Введіть текст 3">
-        <p id="demo"></p>
-    </div>
-    
-    <div>
-        <h3>6. Клікніть на input </h3>
-        <input type="text" placeholder="Клікніть тут 1" value=" 1">
-        <input type="text" placeholder="Клікніть тут 2" value="Значення 2">
-        <input type="text" placeholder="Клікніть тут 3" value="Значення 3">
-    </div>
-    
-    <div>
-        <h3>7. Клікніть на число:</h3>
-        <p>5</p>
-        <p>10</p>
-        <p>15</p>
-    </div>
-    
-    <div>
-        <h3>8. Введіть текст правильної довжини:</h3>
-        <input type="text" placeholder="Введіть 5 символів" data-length="5">
-        <input type="text" placeholder="Введіть 10 символів" data-length="10">
-        <input type="text" placeholder="Введіть 15 символи" data-length="15">
-    </div>
-    <script src="script.js"></script>
+<img id="image1" class="image" src="image1.jpg" alt="Рисунок 1">
+<img id="image2" class="image" src="image2.jpg" alt="Рисунок 2">
+<img id="image3" class="image" src="image3.jpg" alt="Рисунок 3">
+
+<a id="link1" href="https://www.youtube.com/">Посилання 1</a>
+<a id="link2" href="https://classroom.google.com/u/0/h?hl=uk">Посилання 2</a>
+<a id="link3" href="https://www.google.pl/">Посилання 3</a>
+
+<b id="lin1" href="https://www.youtube.com/">Посилання 1</b>
+<b id="lin2" href="https://classroom.google.com/u/0/h?hl=uk">Посилання 2</b>
+<b id="lin3" href="https://www.google.pl/">Посилання 3</b>
+
+<input type="text" id="input1" placeholder="Введіть текст 1">
+<input type="text" id="input2" placeholder="Введіть текст 2">
+<input type="text" id="input3" placeholder="Введіть текст 3">
+
+<p id="demo"></p>
+
+<p id="paragraph1">5</p>
+<p id="paragraph2">10</p>
+<p id="paragraph3">15</p>
+
+<input type="text" id="input1" data-length="5" placeholder="Введіть 5 символів">
+<input type="text" id="input2" data-length="10" placeholder="Введіть 10 символів">
+<input type="text" id="input3" data-length="3" placeholder="Введіть 3 символи">
+
+<script src="script.js"></script>
+
 </body>
 </html>
+
+
+
